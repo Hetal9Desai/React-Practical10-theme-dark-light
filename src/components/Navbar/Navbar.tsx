@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg ${
+      className={`navbar navbar-expand-lg navbar-dark bg-dark ${
         darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
       }`}
     >
