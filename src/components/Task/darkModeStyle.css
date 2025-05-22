@@ -1,5 +1,7 @@
-.dark-mode .form-control::placeholder,
-.dark-mode .form-select::placeholder {
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder,
+.bg-dark input::placeholder,
+.bg-dark textarea::placeholder {
   color: rgba(255, 255, 255, 0.7);
   opacity: 1;
 }

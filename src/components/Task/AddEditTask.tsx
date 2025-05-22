@@ -66,7 +66,7 @@ const AddEditTask: React.FC = () => {
   };
 
   return (
-    <div className={`container mt-5 ${darkMode ? "dark-mode" : ""}`}>
+    <div className={`container mt-5 ${darkMode ? "bg-dark" : ""}`}>
       <div className={`card shadow-sm ${darkMode ? "bg-dark text-white" : ""}`}>
         <div className="card-body">
           <h2 className="card-title mb-4 text-center">
@@ -83,7 +83,7 @@ const AddEditTask: React.FC = () => {
               <input
                 type="text"
                 className={`form-control ${
-                  darkMode ? "bg-dark text-white border-secondary" : ""
+                  darkMode ? "bg-dark text-white border-white" : ""
                 }`}
                 placeholder="Title"
                 {...register("title")}
@@ -96,7 +96,7 @@ const AddEditTask: React.FC = () => {
             <div className="col-12">
               <textarea
                 className={`form-control ${
-                  darkMode ? "bg-dark text-white border-secondary" : ""
+                  darkMode ? "bg-dark text-white border-white" : ""
                 }`}
                 placeholder="Description"
                 rows={4}
@@ -110,7 +110,7 @@ const AddEditTask: React.FC = () => {
             <div className="col-12">
               <select
                 className={`form-select ${
-                  darkMode ? "bg-dark text-white border-secondary" : ""
+                  darkMode ? "bg-dark text-white border-white" : ""
                 }`}
                 {...register("status")}
               >
