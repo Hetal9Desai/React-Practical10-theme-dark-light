@@ -4,14 +4,11 @@ import { useTaskContext } from "./TaskProvider";
 import { TaskStatus } from "../../types/Task/types";
 import TaskFilter, { type FilterKey } from "../../components/Task/TaskFilter";
 import TaskStatusLegend from "./TaskStatusLegend";
-import { useTheme } from "../Navbar/ThemeContext";
+import { useTheme } from "../../context/ThemeContext";
 
 const TaskList: React.FC = () => {
   const { tasks, setTasks } = useTaskContext();
   const { darkMode } = useTheme();
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const safeTasks = tasks ?? [];
 
   const [filters, setFilters] = useState<Record<FilterKey, string>>({
     title: "",
@@ -28,6 +25,8 @@ const TaskList: React.FC = () => {
   };
 
   const filteredTasks = useMemo(() => {
+    const safeTasks = tasks ?? [];
+
     return safeTasks.filter((task) => {
       const titleMatch = filters.title
         ? task.title.toLowerCase().includes(filters.title.toLowerCase())
@@ -44,7 +43,7 @@ const TaskList: React.FC = () => {
         : true;
       return titleMatch && descMatch && bothMatch && statusMatch;
     });
-  }, [safeTasks, filters]);
+  }, [tasks, filters]);
 
   const getStatusClass = (status: TaskStatus) => {
     switch (status) {
